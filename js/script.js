@@ -2,9 +2,6 @@
 
 function performRegistration() {
 
-    // show a loading animationa
-    $.mobile.showPageLoadingMsg();
-
     // get the user credentials from the UI
     var username = $("#username").val();
     var password = $("#password").val();
@@ -18,22 +15,12 @@ function performRegistration() {
 
             // callback for successful registration
             success: function (theAuthedUser) {
-
-                // show the list of objects
-                $.mobile.changePage("list.html");
-
-                // hide the loading animation
-                $.mobile.hidePageLoadingMsg();
-
-                // tell the console
+                alert("User registered: " + user);
                 Kii.logger("User registered: " + user);
             },
 
             // callback for failed registration
             failure: function (theUser, anErrorString) {
-
-                // hide the loading animation
-                $.mobile.hidePageLoadingMsg();
 
                 // tell the user
                 alert("Unable to register: " + anErrorString);
@@ -46,7 +33,7 @@ function performRegistration() {
     } catch (e) {
 
         // hide the loading animation
-        $.mobile.hidePageLoadingMsg();
+        
 
         // tell the user
         alert("Unable to register: " + e.message);
@@ -62,10 +49,6 @@ function performRegistration() {
 // the user clicked the 'sign in' button
 function performLogin() {
 
-    // show a loading animation
-    // $.mobile.showPageLoadingMsg();
-
-    // get the user credentials from the UI
     var username = $("#username").val();
     var password = $("#password").val();
 
@@ -74,25 +57,13 @@ function performLogin() {
 
         // callback for successful authentication
         success: function (theAuthedUser) {
-
-            // show the list of objects
-            $.mobile.changePage("list.html");
-
-            // hide the loading animation
-            $.mobile.hidePageLoadingMsg();
-
-            // tell the console
-            Kii.logger("User authenticated: " + user);
+            window.location.href = "inner.html";
         },
 
         // callback for failed registration
         failure: function (theUser, anErrorString) {
 
-            // hide the loading animation
-            $.mobile.hidePageLoadingMsg();
-
-            // tell the user
-            alert("Unable to register: " + anErrorString);
+            alert("Nope!: " + anErrorString);
 
             // tell the console
             Kii.logger("Unable to register user: " + anErrorString);
@@ -100,3 +71,16 @@ function performLogin() {
     });
 
 }
+
+
+$(document).ready(function () {
+     // 
+     //
+     // initialize the Kii SDK!
+     Kii.initializeWithSite("0c05c8de", "1a9dad3ba2542a1b231ba930490ab911", KiiSite.US);
+
+     // bind clicks to our login/sign up methods
+     $("#register-button").click(performRegistration);
+     $("#login-button").click(performLogin);
+
+ });
