@@ -74,11 +74,9 @@ function performLogin() {
 
 
 $(document).ready(function () {
-     // 
-     //
+
      // initialize the Kii SDK!
      Kii.initializeWithSite("0c05c8de", "1a9dad3ba2542a1b231ba930490ab911", KiiSite.US);
-
      // bind clicks to our login/sign up methods
      $("#register-button").click(performRegistration);
      $("#login-button").click(performLogin);
