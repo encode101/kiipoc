@@ -1,10 +1,10 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css" />
 </head>
 <body>
-	<div class="container">
+	<div class="page" data-role="page" id="home">
 		<div class="page-header">
 			<h2>Login / Signup</h2>
 		</div>
@@ -16,9 +16,20 @@
 		</form>
 	</div>
 
-<script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+	<!-- Inner Page 1 -->
+	
+	<div class="page" data-role="page" id="inner">
+			<div class="page-header">
+				<h2>News List</h2>
+			</div>
+			<span id="error"></span>
+			<h2>Welcome!</h2><span id='user'></span>
+		</div>
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
 <script type="text/javascript" src="js/KiiSDK.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
 <script type="text/javascript" src="js/events.js"></script>
 <script type="text/javascript" src="js/relib.js"></script>
 </body>
